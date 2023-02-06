@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;800&display=swap" rel="stylesheet">
+  <title>Frontend Mentor | Notifications page</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      transition: all 0.3s ease-in-out;
+    }
+    * a {
+      text-decoration: none;
+    }
+    body {
+      background-color: hsl(210, 60%, 98%);
+    }
+    .notifications-section {
+      min-height: 100vh;
+      padding: 50px 0;
+    }
+    .dark-text {
+      color: hsl(224, 21%, 14%);
+    }
+    .light-text {
+      color: hsl(219, 14%, 63%);
+    }
+    .medium-text {
+      color: hsl(219, 12%, 42%);
+    }
+    .blue-text {
+      color: hsl(219, 85%, 26%);
+    }
+    .bold {
+      font-weight: 800;
+    }
+    .thin {
+      font-weight: 400;
+    }
+    .small-x-padding {
+      padding: 0 0.25rem;
+    }
+    .medium-x-padding {
+      padding: 0 0.5rem;
+    }
+    .baseline {
+      align-self: baseline;
+    }
+    .inline {
+      display: inline;
+    }
+    .space-between {
+      justify-content: space-between;
+    }
+    .notification-bar {
+      background-color: hsl(0, 0%, 100%);
+      width: 50%;
+      margin: auto;
+      border-radius: 12px;
+      box-shadow: 0px 10px 10px 10px hsl(211, 68%, 94%);
+      padding: 10px 0;
+    }
+    .head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 25px 38px;
+    }
+    .head h2 {
+      font-size: 22px;
+    }
+    .head h2 span {
+      color: hsl(0, 0%, 100%);
+      background-color: hsl(219, 85%, 26%);
+      padding: 0 10px;
+      border-radius: 8px;
+    }
+    .head a {
+      font-size: 16px;
+    }
+    .notification {
+      display: flex;
+      align-items: center;
+      width: 90%;
+      margin: 10px auto;
+      padding: 10px;
+      border-radius: 8px;
+      background-color: transparent;
+    }
+    .notification.unread {
+      background-color: hsl(210, 60%, 98%);
+    }
+    .notification .content {
+      width: 92%;
+    }
+    .notification .content .user-info {
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+    .notification.unread .content .user-info p::after {
+      content: "";
+      position: absolute;
+      background-color: hsl(1, 90%, 64%);
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      margin: 8px 8px;
+    }
+    .notification .user-photo img {
+      width: 100%;
+    }
+    .notification .user-photo {
+      width: 8%;
+    }
+    .notification .picture img {
+      width: 100%;
+    }
+    .notification .picture {
+      width: 8%;
+    }
+    .notification .user-action span:hover , .notification .username:hover ,.head a:hover {
+      color: hsl(219, 85%, 26%);
+      cursor: pointer;
+    }
+    .notification .content .message {
+      border: 1px solid hsl(219, 14%, 63%);
+      padding: 20px;
+      margin: 10px;
+      border-radius: 3px;
+    }
+    .notification .content .message:hover {
+      background-color: hsl(211, 68%, 94%);
+      cursor: pointer;
+    }
+    @media all and (max-width: 991px) {
+    .notification-bar {
+      width: 80%;
+    }
+  }
+
+    @media all and (max-width: 767.20px) {
+      .notification-bar {
+      width: 90%;
+    }
+  }
+
+    @media all and (max-width: 575px) {
+    .notification-bar {
+      width: 100%;
+    }
+    .notifications-section {
+      padding: 0;
+    }
+  }
+  </style>
+</head>
+<body>
+  <section class="notifications-section">
+    <div class="notification-bar">
+      <div class="head">
+        <h2 class="dark-text bold">Notifications <span class="thin">3</span></h2>
+        <a class="medium-text" href="#">Mark all as read</a>
+      </div>
+      <div class="notification unread">
+        <div class="user-photo small-x-padding"><img src="assets/images/avatar-mark-webber.webp" alt="User Photo"></div>
+        <div class="content">
+          <div class="user-info">
+            <p class="user-action light-text thin small-x-padding"><strong class="username dark-text bold small-x-padding">Mark Webber</strong> reacted to your recent post <span class="post medium-text bold small-x-padding">My first tournament today!</span></p>
+          </div>
+          <div class="timing medium-x-padding">
+            <small class="light-text">1m ago</small>
+          </div>
+        </div>
+      </div>
+      <div class="notification unread">
+        <div class="user-photo small-x-padding"><img src="assets/images/avatar-angela-gray.webp" alt="User Photo"></div>
+        <div class="content">
+          <div class="user-info">
+            <p class="user-action light-text thin small-x-padding"><strong class="username dark-text bold small-x-padding">Angela Gray</strong> followed you</p>
+          </div>
+          <div class="timing medium-x-padding">
+            <small class="light-text">5m ago</small>
+          </div>
+        </div>
+      </div>
+      <div class="notification unread">
+        <div class="user-photo small-x-padding"><img src="assets/images/avatar-jacob-thompson.webp" alt="User Photo"></div>
+        <div class="content">
+          <div class="user-info">
+            
+            <p class="user-action light-text thin small-x-padding"><strong class="username dark-text bold small-x-padding">Jacob Thompson</strong> has joined your group <span class="group blue-text bold small-x-padding">Chess Club</span></p>
+          </div>
+          <div class="timing medium-x-padding">
+            <small class="light-text">1 day ago</small>
+          </div>
+        </div>
+      </div>
+      <div class="notification">
+        <div class="user-photo baseline small-x-padding"><img src="assets/images/avatar-rizky-hasanuddin.webp" alt="User Photo"></div>
+        <div class="content">
+          <div class="user-info">
+            <p class="user-action light-text thin small-x-padding"><strong class="username dark-text bold small-x-padding">Rizky Hasanuddin</strong> sent you a private message</p>
+          </div>
+          <div class="timing medium-x-padding">
+            <small class="light-text">5 days ago</small>
+          </div>
+          <div class="message light-text small-x-padding">
+            <p>Hello, thanks for setting up the Chess Club. I've been a member for a few weeks now and I'm already having lots of fun and improving my game.</p>
+          </div>
+        </div>
+      </div>
+      <div class="notification">
+        <div class="user-photo small-x-padding"><img src="assets/images/avatar-kimberly-smith.webp" alt="User Photo"></div>
+        <div class="content">
+          <div class="user-info">
+            <div class="user-action light-text thin small-x-padding"><strong class="username dark-text bold small-x-padding">Kimberly Smith</strong> commented on your picture</div>
+          </div>
+          <div class="timing medium-x-padding">
+            <small class="light-text">1 week ago</small>
+          </div>
+        </div>
+        <div class="picture">
+          <img src="assets/images/image-chess.webp" alt="">
+        </div>
+      </div>
+      <div class="notification">
+        <div class="user-photo small-x-padding baseline"><img src="assets/images/avatar-nathan-peterson.webp" alt="User Photo"></div>
+        <div class="content">
+          <div class="user-info">
+            <p class="user-action light-text thin small-x-padding"><strong class="username dark-text bold small-x-padding">Nathan Peterson</strong> reacted to your recent post <span class="post medium-text bold small-x-padding">5 end-game strategies to increase your win rate</span></p>
+          </div>
+          <div class="timing medium-x-padding">
+            <small class="light-text">2 weeks ago</small>
+          </div>
+        </div>
+      </div>
+      <div class="notification">
+        <div class="user-photo small-x-padding"><img src="assets/images/avatar-anna-kim.webp" alt="User Photo"></div>
+        <div class="content">
+          <div class="user-info">
+            <p class="user-action light-text thin small-x-padding"><strong class="username dark-text bold small-x-padding">Anna Kim</strong> left the group <span class="group blue-text bold small-x-padding">Chess Club</span></p>
+          </div>
+          <div class="timing medium-x-padding">
+            <small class="light-text">2 weeks ago</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+</body>
+</html>
